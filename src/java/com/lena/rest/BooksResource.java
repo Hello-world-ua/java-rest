@@ -23,4 +23,13 @@ public class BooksResource {
     public String getGreeting() {
         return "Hello! This is books resource.";
     }
+    
+    /*
+        // Example of client request:
+        Client client = ClientBuilder.newClient();
+        client.register(MessageBodyReaderWriter.class).register(BooksResource.class);
+        Response response = target.request()
+        .post(Entity.entity(new Book("F#","11111111"), MediaType.APPLICATION_XML_TYPE));
+        Book  = response.readEntity(Book.class);
+    */
 }

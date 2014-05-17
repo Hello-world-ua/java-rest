@@ -16,17 +16,20 @@ public class ApplicationConfig extends Application {
         return resources;
     }
 
-    private void addRestResourceClasses(Set<Class<?>> resources) {
-        resources.add(com.lena.rest.BookMessageBodyReader.class);
-        resources.add(com.lena.rest.BooksMessageBodyWriter.class);
-        resources.add(com.lena.rest.BooksResource.class);
-        resources.add(com.lena.rest.Library.class);
-    }
     
+    // Thus is how client code should interact:
+    // List<ValidationError> errors = response.readEntity(new GenericType<List<ValidationError>>() {});
     @Override
     public Map<String, Object> getProperties() {
         Map<String,Object> properties = new HashMap<String,Object>();
         properties.put(ServerProperties.BV_SEND_ERROR_IN_RESPONSE, true);
         return properties;
+    }
+
+    private void addRestResourceClasses(Set<Class<?>> resources) {
+        resources.add(com.lena.rest.BookMessageBodyReader.class);
+        resources.add(com.lena.rest.BooksMessageBodyWriter.class);
+        resources.add(com.lena.rest.BooksResource.class);
+        resources.add(com.lena.rest.Library.class);
     }
 }
