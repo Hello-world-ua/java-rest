@@ -1,7 +1,10 @@
 package com.lena.rest;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Set;
 import javax.ws.rs.core.Application;
+import org.glassfish.jersey.server.ServerProperties;
 
 @javax.ws.rs.ApplicationPath("library")
 public class ApplicationConfig extends Application {
@@ -20,4 +23,10 @@ public class ApplicationConfig extends Application {
         resources.add(com.lena.rest.Library.class);
     }
     
+    @Override
+    public Map<String, Object> getProperties() {
+        Map<String,Object> properties = new HashMap<String,Object>();
+        properties.put(ServerProperties.BV_SEND_ERROR_IN_RESPONSE, true);
+        return properties;
+    }
 }
