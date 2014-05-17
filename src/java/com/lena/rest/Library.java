@@ -20,15 +20,15 @@ public class Library {
     }
     
     @Path("/books/{isbn}")
-    public Book getBook(@PathParam("isbn") String isbn) {
+    public com.lena.entities.Book getBook(@PathParam("isbn") String isbn) {
         // return some Book
-        return new Book();
+        return new com.lena.entities.Book();
     }
     
     @POST
     @Consumes(MediaType.APPLICATION_XML)
     @Produces(MediaType.APPLICATION_XML)
-    public Response addBook(Book book) {
+    public Response addBook(com.lena.entities.Book book) {
         // add book to some collection
         return Response.ok(book).type(MediaType.APPLICATION_XML_TYPE).build();
     }

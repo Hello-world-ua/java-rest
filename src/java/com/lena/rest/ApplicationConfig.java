@@ -14,6 +14,7 @@ public class ApplicationConfig extends Application {
     }
 
     private void addRestResourceClasses(Set<Class<?>> resources) {
+        resources.add(com.lena.rest.BookMessageBodyReader.class);
         resources.add(com.lena.rest.BooksResource.class);
         resources.add(com.lena.rest.Library.class);
     }
