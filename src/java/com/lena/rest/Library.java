@@ -30,6 +30,7 @@ public class Library {
     @Produces(MediaType.APPLICATION_XML)
     public Response addBook(com.lena.entities.Book book) {
         // add book to some collection
+        System.out.println("adding new book " + book.getTitle());
         return Response.ok(book).type(MediaType.APPLICATION_XML_TYPE).build();
     }
     
