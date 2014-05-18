@@ -10,15 +10,21 @@ import javax.xml.bind.annotation.XmlType;
 import javax.xml.datatype.XMLGregorianCalendar;
 
 @XmlRootElement(name = "book")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Book {
     
         public Book() {                   
         }
         
+        public Book(String title, String isbn) {   
+            this.setTitle(title);
+            this.setISBN(isbn);
+        }
+        
         @XmlElement(required = true)
         protected String title;
         
-        @XmlElement(required = true)
+        @XmlElement()
         protected Book.Author author;
         
         protected String genre;
